@@ -1,0 +1,17 @@
+{
+  "sensor": {
+    "temperatura": 25.5,
+    "umidade": 50.0,
+    "luminosidade": 300,
+    "umidadeSolo": 67.0
+  },
+  "reles": {
+    "rele1": {
+      "estado": "ligado"
+    },
+    "rele2": {
+      "estado": "desligado"
+    }
+  },
+  "timestamp": "2023-08-22 14:30:00"
+}
