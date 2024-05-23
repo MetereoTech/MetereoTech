@@ -1,0 +1,306 @@
+/* Reset de Estilos Padrão do Navegador */
+/* Isso ajuda a garantir que você comece com uma base consistente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis CSS */
+:root {
+    --primary-color: #007bff;
+    --background-color: #ffffff;
+    --text-color: #333;
+}
+
+/* Estilos Globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+/* Estilos para Cabeçalhos */
+h1 {
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    margin-bottom: 20px; /* Espaçamento inferior */
+    /* Efeito de transição suave para o cabeçalho */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+h1:hover {
+    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+h2 {
+    margin-top: 20px;
+    font-size: 20px;
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Estilos para Listas Não Ordenadas */
+ul {
+    list-style-type: none;
+    padding: 0;
+    /* Mantém o estilo original das listas */
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s; /* Efeito de sombra suave */
+}
+
+ul:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra ao passar o mouse */
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para Divs (Blocos) */
+.container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Espaçamento inferior */
+}
+
+/* Estilos para Botões */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Efeito de transição suave para botões */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Efeito de escala ao passar o mouse */
+}
+
+/* Estilos para Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Espaçamento inferior */
+    /* Efeito de transição suave para tabelas */
+    transition: box-shadow 0.3s;
+}
+
+table:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Efeito de sombra ao passar o mouse */
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para Rodapé */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer:hover {
+    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+/* Estilos para Ícones e Spans */
+img {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+span {
+    font-weight: bold;
+}
+
+/* Estilos para o campo de Comentários e Notas (cor de fundo limitada) */
+.comentarios-e-notas {
+    margin: 10px;
+    padding: 10px;
+    background-color: #dcdcdc; /* Cor de fundo mais escura */
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+.comentarios-e-notas h2 {
+    font-size: 18px;
+    color: #555;
+}
+
+.comentarios-e-notas p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Estilos para o contêiner principal */
+.container-principal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start; /* Alinhe os elementos ao topo */
+    /* Adicione um plano de fundo gradient para o contêiner principal */
+    background: #ffffff;
+}
+
+/* Estilos para os dados atuais */
+#dadosAtuais {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* Cor de fundo suave */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    max-width: 400px; /* Largura máxima do bloco */
+}
+
+#dadosAtuais h2 {
+    font-size: 24px;
+    color: #007bff; /* Cor do cabeçalho destacado */
+    margin-bottom: 20px; /* Espaçamento inferior maior */
+    /* Efeito de transição suave para o cabeçalho */
+    transition: color 0.3s;
+}
+
+#dadosAtuais h2:hover {
+    color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+#dadosAtuais p {
+    font-size: 18px;
+    color: #333; /* Cor do texto principal */
+    align-items: center;
+    margin: 10px 0; /* Espaçamento superior e inferior */
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+.titulo-dado {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 150px; /* Largura fixa para o título */
+}
+
+.valor-dado {
+    font-weight: bold;
+    color: #007bff; /* Cor de destaque para valores */
+    /* Efeito de transição suave para elementos com hover */
+    transition: color 0.3s;
+}
+
+/* Ícones */
+.img-dado {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Personalização de cores com base nas classes das imagens */
+.titulo-dado.temperatura {
+    color: #ff5733; /* Cor mais quente para temperatura */
+}
+
+.titulo-dado.umidade {
+    color: #5bc0de; /* Cor azul para umidade */
+}
+
+.titulo-dado.luminosidade {
+    color: #ffd700; /* Cor dourada para luminosidade */
+}
+
+.titulo-dado.umidade-solo {
+    color: #4caf50; /* Cor verde para umidade do solo */
+}
+
+/* Estilos para a tabela de dados dos dias anteriores */
+#dadosAnteriores {
+    background-color: #ffffff; /* Cor de fundo suave */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    max-width: 900px; /* Largura máxima do bloco */
+}
+
+#dadosAnteriores h2 {
+    font-size: 24px;
+    color: #007bff; /* Cor do cabeçalho destacado */
+    margin-bottom: 20px; /* Espaçamento inferior maior */
+    /* Efeito de transição suave para o cabeçalho */
+    transition: color 0.3s;
+}
+
+#dadosAnteriores h2:hover {
+    color: #0056b3; /* Cor mais escura ao passar o mouse */
+}
+
+#dadosAnteriores p {
+    font-size: 18px;
+    color: #333; /* Cor do texto principal */
+    display: flex; /* Alinhamento flexível dos elementos */
+    align-items: center; /* Alinhar verticalmente ícones e texto */
+    margin: 10px 0; /* Espaçamento superior e inferior */
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+/* Estilos para os botões de controle de relés */
+.button-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: #ffffff; /* Cor de fundo suave */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Borda mais arredondada */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
+    display: inline-block; /* Tornar a caixa inline para ocupar apenas o espaço necessário */
+    /* Efeito de transição suave para o contêiner */
+    transition: box-shadow 0.3s;
+}
+
+.button-container:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Efeito de sombra ao passar o mouse */
+}
+
+/* Estilos para alinhar os botões */
+.button-row {
+    display: flex;
+    flex-direction: column; /* Coluna em vez de linha */
+    align-items: center; /* Alinhar verticalmente os botões de ligar/desligar */
+}
+
+/* Estilos para os botões de ligar/desligar */
+.rele-button {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para o texto "Ligar" e "Desligar" ao lado dos botões */
+.rele-button span {
+    margin-left: 5px; /* Espaço entre o texto e o botão */
+}

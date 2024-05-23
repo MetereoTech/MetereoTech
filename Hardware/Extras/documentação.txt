@@ -1,0 +1,96 @@
+// Configuração de Serviço Systemd:
+//Crie um arquivo chamado orchestrator.service no diretório /etc/systemd/system/ com o seguinte conteúdo:
+[Unit]
+Description=Rust Orchestrator Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/path/to/your/orchestrator_binary
+User=your_username
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+
+//Comandos para Configurar o Serviço:
+sudo systemctl daemon-reload            # Recarrega as definições do systemd
+sudo systemctl enable orchestrator.service  # Habilita o serviço para iniciar na boot
+sudo systemctl start orchestrator.service   # Inicia o serviço
+sudo systemctl status orchestrator.service  # Verifica o status do serviço
+
+
+
+1. Segurança e Permissões:
+
+Usuário Restrito: Para uma segurança melhor, o serviço deveria ser executado sob um usuário com permissões limitadas. Você pode criar um usuário específico para este serviço se não existir um já apropriado.
+
+Executáveis e Scripts Protegidos: Certifique-se de que todos os scripts e executáveis que o orquestrador invoca têm permissões corretas para evitar a execução ou modificação não autorizada. Use o comando chmod para definir as permissões corretamente.
+
+bash
+
+chmod 750 /path/to/your/scripts
+chmod 750 /path/to/your/executables
+
+Arquivos de Configuração Seguros: Arquivos de configuração, como o Cargo.toml ou qualquer outro arquivo de configuração usado nos scripts, devem ter permissões restritas para leitura e escrita somente pelo usuário do serviço.
+
+bash
+
+chmod 640 /path/to/your/config_files
+
+2. Iniciar com o Sistema:
+
+Para garantir que o serviço inicie com o sistema, você deve configurar um serviço systemd como descrito anteriormente. Aqui está um resumo dos passos e um exemplo de configuração que considera as práticas de segurança.
+
+Arquivo de Serviço Systemd (/etc/systemd/system/orchestrator.service):
+
+ini
+
+[Unit]
+Description=Rust Orchestrator Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/path/to/your/orchestrator_binary
+User=orchestrator_user
+Group=orchestrator_group
+Restart=on-failure
+AmbientCapabilities=CAP_NET_BIND_SERVICE CAP_SYS_TIME
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
+
+3. Logging:
+
+Para os logs, você já está usando o simple_logger, que é uma boa escolha para início rápido. No entanto, para produção, você pode querer usar algo mais robusto como log4rs ou fern que permite logs em arquivos, rotação de logs e configuração de níveis de log diferentes para diferentes módulos.
+
+Você pode adicionar ao seu Cargo.toml uma dependência ao log4rs e configurar o logging no início do seu programa.
+
+Adicionar ao Cargo.toml:
+
+toml
+
+[dependencies]
+log4rs = "1.0"
+
+Arquivo de Configuração de Log (log4rs.yaml):
+
+yaml
+
+refresh_rate: 30 seconds
+appenders:
+  stdout:
+    kind: console
+  file:
+    kind: file
+    path: "log/orchestrator.log"
+    encoder:
+      pattern: "{d} - {l} - {m}{n}"
+root:
+  level: info
+  appenders:
+    - stdout
+    - file

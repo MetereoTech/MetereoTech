@@ -1,0 +1,115 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. IntegracaoMeteorologica.
+
+DATA DIVISION.
+WORKING-STORAGE SECTION.
+01 TemperaturaAtual PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeSoloAtual PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeArAtual PIC 9(3)V99 VALUE ZEROS.
+01 LuminosidadeAtual PIC 9(5)V99 VALUE ZEROS.
+01 PressaoAtmosfericaAtual PIC 9(4)V99 VALUE ZEROS.
+01 VelocidadeVentoAtual PIC 9(3)V99 VALUE ZEROS.
+01 PluviosidadeAtual PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoSolarAtual PIC 9(4)V99 VALUE ZEROS.
+01 QualidadeArAtual PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoUltravioletaAtual PIC 9(3)V99 VALUE ZEROS.
+
+01 TemperaturaPrevista PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeSoloPrevista PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeArPrevista PIC 9(3)V99 VALUE ZEROS.
+01 LuminosidadePrevista PIC 9(5)V99 VALUE ZEROS.
+01 PressaoAtmosfericaPrevista PIC 9(4)V99 VALUE ZEROS.
+01 VelocidadeVentoPrevista PIC 9(3)V99 VALUE ZEROS.
+01 PluviosidadePrevista PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoSolarPrevista PIC 9(4)V99 VALUE ZEROS.
+01 QualidadeArPrevista PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoUltravioletaPrevista PIC 9(3)V99 VALUE ZEROS.
+
+01 TemperaturaMedia PIC 9(3)V99 VALUE ZEROS.
+01 TemperaturaMinima PIC 9(3)V99 VALUE ZEROS.
+01 TemperaturaMaxima PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeSoloMedia PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeSoloMinima PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeSoloMaxima PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeArMedia PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeArMinima PIC 9(3)V99 VALUE ZEROS.
+01 UmidadeArMaxima PIC 9(3)V99 VALUE ZEROS.
+01 LuminosidadeMedia PIC 9(5)V99 VALUE ZEROS.
+01 LuminosidadeMinima PIC 9(5)V99 VALUE ZEROS.
+01 LuminosidadeMaxima PIC 9(5)V99 VALUE ZEROS.
+01 PressaoAtmosfericaMedia PIC 9(4)V99 VALUE ZEROS.
+01 PressaoAtmosfericaMinima PIC 9(4)V99 VALUE ZEROS.
+01 PressaoAtmosfericaMaxima PIC 9(4)V99 VALUE ZEROS.
+01 VelocidadeVentoMedia PIC 9(3)V99 VALUE ZEROS.
+01 VelocidadeVentoMinima PIC 9(3)V99 VALUE ZEROS.
+01 VelocidadeVentoMaxima PIC 9(3)V99 VALUE ZEROS.
+01 PluviosidadeMedia PIC 9(3)V99 VALUE ZEROS.
+01 PluviosidadeMinima PIC 9(3)V99 VALUE ZEROS.
+01 PluviosidadeMaxima PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoSolarMedia PIC 9(4)V99 VALUE ZEROS.
+01 RadiacaoSolarMinima PIC 9(4)V99 VALUE ZEROS.
+01 RadiacaoSolarMaxima PIC 9(4)V99 VALUE ZEROS.
+01 QualidadeArMedia PIC 9(3)V99 VALUE ZEROS.
+01 QualidadeArMinima PIC 9(3)V99 VALUE ZEROS.
+01 QualidadeArMaxima PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoUltravioletaMedia PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoUltravioletaMinima PIC 9(3)V99 VALUE ZEROS.
+01 RadiacaoUltravioletaMaxima PIC 9(3)V99 VALUE ZEROS.
+
+01 CSV-Data PIC X(1000).
+
+PROCEDURE DIVISION.
+MAIN-LOGIC SECTION.
+    PERFORM READ-FORTAN-DATA
+    PERFORM READ-PASCAL-DATA
+    PERFORM INTEGRATE-WITH-BUSINESS-SYSTEMS
+    DISPLAY "Integration with business systems completed."
+
+STOP RUN.
+
+READ-FORTAN-DATA.
+    DISPLAY "Reading weather forecast data from Fortran CSV..."
+    OPEN INPUT Fortran-CSV-File
+    READ Fortran-CSV-File INTO Fortran-Data
+    CLOSE Fortran-CSV-File
+    MOVE Fortran-Data TO TemperaturaPrevista, UmidadeSoloPrevista, UmidadeArPrevista, LuminosidadePrevista,
+                        PressaoAtmosfericaPrevista, VelocidadeVentoPrevista, PluviosidadePrevista,
+                        RadiacaoSolarPrevista, QualidadeArPrevista, RadiacaoUltravioletaPrevista
+    DISPLAY "Weather forecast data from Fortran CSV read successfully."
+
+READ-PASCAL-DATA.
+    DISPLAY "Reading weather statistics data from Pascal CSV..."
+    OPEN INPUT Pascal-CSV-File
+    READ Pascal-CSV-File INTO Pascal-Data
+    CLOSE Pascal-CSV-File
+    MOVE Pascal-Data TO TemperaturaMedia, TemperaturaMinima, TemperaturaMaxima,
+                        UmidadeSoloMedia, UmidadeSoloMinima, UmidadeSoloMaxima,
+                        UmidadeArMedia, UmidadeArMinima, UmidadeArMaxima,
+                        LuminosidadeMedia, LuminosidadeMinima, LuminosidadeMaxima,
+                        PressaoAtmosfericaMedia, PressaoAtmosfericaMinima, PressaoAtmosfericaMaxima,
+                        VelocidadeVentoMedia, VelocidadeVentoMinima, VelocidadeVentoMaxima,
+                        PluviosidadeMedia, PluviosidadeMinima, PluviosidadeMaxima,
+                        RadiacaoSolarMedia, RadiacaoSolarMinima, RadiacaoSolarMaxima,
+                        QualidadeArMedia, QualidadeArMinima, QualidadeArMaxima,
+                        RadiacaoUltravioletaMedia, RadiacaoUltravioletaMinima, RadiacaoUltravioletaMaxima
+    DISPLAY "Weather statistics data from Pascal CSV read successfully."
+
+INTEGRATE-WITH-BUSINESS-SYSTEMS.
+    DISPLAY "Integrating weather data with business systems..."
+    PERFORM INTEGRATE-AND-GENERATE-CSV
+    DISPLAY "Integration with business systems completed."
+
+INTEGRATE-AND-GENERATE-CSV.
+    MOVE "TemperaturaAtual;TemperaturaMedia;TemperaturaMinima;TemperaturaMaxima;TemperaturaPrevista" TO CSV-Data
+    MOVE "UmidadeSoloAtual;UmidadeSoloMedia;UmidadeSoloMinima;UmidadeSoloMaxima;UmidadeSoloPrevista" TO CSV-Data
+    MOVE "UmidadeArAtual;UmidadeArMedia;UmidadeArMinima;UmidadeArMaxima;UmidadeArPrevista" TO CSV-Data
+    MOVE "LuminosidadeAtual;LuminosidadeMedia;LuminosidadeMinima;LuminosidadeMaxima;LuminosidadePrevista" TO CSV-Data
+    MOVE "PressaoAtmosfericaAtual;PressaoAtmosfericaMedia;PressaoAtmosfericaMinima;PressaoAtmosfericaMaxima;PressaoAtmosfericaPrevista" TO CSV-Data
+    MOVE "VelocidadeVentoAtual;VelocidadeVentoMedia;VelocidadeVentoMinima;VelocidadeVentoMaxima;VelocidadeVentoPrevista" TO CSV-Data
+    MOVE "PluviosidadeAtual;PluviosidadeMedia;PluviosidadeMinima;PluviosidadeMaxima;PluviosidadePrevista" TO CSV-Data
+    MOVE "RadiacaoSolarAtual;RadiacaoSolarMedia;RadiacaoSolarMinima;RadiacaoSolarMaxima;RadiacaoSolarPrevista" TO CSV-Data
+    MOVE "QualidadeArAtual;QualidadeArMedia;QualidadeArMinima;QualidadeArMaxima;QualidadeArPrevista" TO CSV-Data
+    MOVE "RadiacaoUltravioletaAtual;RadiacaoUltravioletaMedia;RadiacaoUltravioletaMinima;RadiacaoUltravioletaMaxima;RadiacaoUltravioletaPrevista" TO CSV-Data
+    DISPLAY "CSV data generated successfully."
+
+

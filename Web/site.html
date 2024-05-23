@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dados do ESP32</title>
+        <link rel="stylesheet" type="text/css" href="site.css">
+    </head>
+<body>
+
+    <h1>Dados do ESP32</h1>
+    <h2>Dados Atuais</h2>
+    <div class="container-principal">
+        <div id="dadosAtuais">        
+            <p>
+                <img src="umidade.png" alt="Ícone Umidade" class="img-dado umidade"> <span class="titulo-dado umidade">Umidade:</span> <span id="umidade">--</span>
+            </p>
+            <p>
+                <img src="temperatura.png" alt="Ícone Temperatura" class="img-dado temperatura"> <span class="titulo-dado temperatura">Temperatura:</span> <span id="temperatura">--</span>
+            </p>
+            <p>
+                <img src="luminosidade.png" alt="Ícone Luminosidade" class="img-dado luminosidade"> <span class="titulo-dado luminosidade">Luminosidade:</span> <span id="luminosidade">--</span>
+            </p>
+        
+            <p>
+                <img src="umidade_solo.png" alt="Ícone Umidade do Solo" class="img-dado umidade-solo"> <span class="titulo-dado umidade-solo">Umidade do Solo:</span> <span id="umidadeSolo">--</span>%
+            </p>
+        </div> 
+        
+        <div class="button-container">
+            <div class="button-row">
+                <div class="button-column">
+                    <button id="ligarRele1">Ligar Relé 1</button>
+                    <button id="desligarRele1">Desligar Relé 1</button>
+                </div>
+                <div class="button-column">
+                    <button id="ligarRele2">Ligar Relé 2</button>
+                    <button id="desligarRele2">Desligar Relé 2</button>
+                </div>
+                <div class="button-column">
+                    <button id="ligarRele3">Ligar Relé 3</button>
+                    <button id="desligarRele3">Desligar Relé 3</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2>Dados dos Dias Anteriores</h2>
+    <ul id="dadosAnteriores">
+        <li>Data: <span id="Ontem">--</span> Temperatura: <span id="temperaturaOntem">--°C</span>, Umidade: <span id="umidadeOntem">--%</span>, Luminosidade: <span id="luminosidadeOntem">--</span>, Umidade do Solo: <span id="umidadeSoloOntem">--%</span></li>
+        <li>Data: <span id="Data1">--</span> Temperatura: <span id="temperaturaAnterior1">--°C</span>, Umidade: <span id="umidadeAnterior1">--%</span>, Luminosidade: <span id="luminosidadeAnterior1">--</span>, Umidade do Solo: <span id="umidadeSoloAnterior1">--%</span></li>
+        <li>Data: <span id="Data2">--</span> Temperatura: <span id="temperaturaAnterior2">--°C</span>, Umidade: <span id="umidadeAnterior2">--%</span>, Luminosidade: <span id="luminosidadeAnterior2">--</span>, Umidade do Solo: <span id="umidadeSoloAnterior2">--%</span></li>
+        <li>Data: <span id="Data3">--</span> Temperatura: <span id="temperaturaAnterior3">--°C</span>, Umidade: <span id="umidadeAnterior3">--%</span>, Luminosidade: <span id="luminosidadeAnterior3">--</span>, Umidade do Solo: <span id="umidadeSoloAnterior3">--%</span></li>
+        <li>Data: <span id="Data4">--</span> Temperatura: <span id="temperaturaAnterior4">--°C</span>, Umidade: <span id="umidadeAnterior4">--%</span>, Luminosidade: <span id="luminosidadeAnterior4">--</span>, Umidade do Solo: <span id="umidadeSoloAnterior4">--%</span></li>
+    </ul>
+
+<div class="comentarios-e-notas">
+    <h2>Comentários e Notas</h2>
+    <div>
+        <p><strong>Temperatura:</strong> A temperatura atual medida pelo ESP32.</p>
+        <p><strong>Umidade:</strong> A umidade atual medida pelo ESP32.</p>
+        <p><strong>Luminosidade:</strong> A luminosidade atual medida pelo ESP32.</p>
+        <p><strong>Dados dos Dias Anteriores:</strong> Registros de temperatura, umidade e luminosidade dos dias anteriores.</p>
+        <p><strong>Comparação de Dados:</strong> Tabela que compara a umidade média com a sua umidade atual.</p>
+    </div>
+</div>
+
+
+    <div id="dadosDoPHP">
+    </div>
+
+    <br><br><br><br>
+    
+    <h1>Rodapé</h1>
+    <footer>
+        <p>Grupo Técnico de Projeto: MetereoTech</p>
+        <p>Integrantes: Ricardo Fiorini Cuato RA: 202110323 / Luis Gustavo Santos da Costa RA:202105122 / Gustavo Rafael Pinto RA:202106958 / Otávio Pereira Cardoso RA:202318690 / Matheus André Caldeira Marques RA:202109693</p>
+        <p>Direitos Autorais © 2023 MetereoTech. Todos os direitos reservados.</p>
+    </footer>
+    
+    <script src="site.js"></script>
+    
+</body>
+</html>

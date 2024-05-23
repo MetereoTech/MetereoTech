@@ -1,0 +1,12 @@
+# Define o tratamento de finais de linha para todos os arquivos
+* text=auto
+
+# Manter finais de linha LF para arquivos de código fonte
+*.sh text eol=lf
+*.js text eol=lf
+*.php text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.sql text eol=lf
+*.ino text eol=lf
+*.rs text eol=lf
